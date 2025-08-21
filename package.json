@@ -1,6 +1,6 @@
 {
   "name": "legalesign-document-viewer-react",
-  "version": "0.0.7",
+  "version": "0.0.13",
   "description": "Legalesign React Editor / Viewers",
   "keywords": [
     "stencilJS",
@@ -20,14 +20,30 @@
   "files": [
     "dist"
   ],
-  "include": ["lib"],
-  "exclude": ["node_modules"],
   "exports": {
     ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.js"
+      "import": "./dist/index.js"
+    },
+    "./dist/*": {
+      "import": "./dist/*",
+      "types": "./dist/*"
+    },
+    "./components/*": {
+      "import": "./dist/components/*.js",
+      "types": "./dist/components/*.d.ts"
+    },
+    "./loader": {
+      "import": "./loader/index.js",
+      "types": "./loader/index.d.ts",
+      "require": "./loader/index.cjs"
     }
   },
+  "include": [
+    "lib"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "scripts": {
     "build": "npm run tsc",
     "tsc": "tsc -p . --outDir ./dist",
@@ -43,11 +59,20 @@
     "react-dom": "^19.1.1",
     "typescript": "^5.9.2"
   },
+  "peerDependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
   "overrides": {
     "@tanstack/react-virtual": "3.9.0"
   },
   "dependencies": {
-    "legalesign-document-viewer": "^0.0.9",
-    "@stencil/react-output-target": "^1.2.0"
+    "@stencil/react-output-target": "^1.2.0",
+    "legalesign-document-viewer": "^0.0.11"
+  },
+  "pnpm": {
+    "overrides": {
+      "legalesign-document-viewer": "link:../../../Library/pnpm/global/5/node_modules/legalesign-document-viewer"
+    }
   }
 }
