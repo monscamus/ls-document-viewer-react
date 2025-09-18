@@ -19,8 +19,12 @@ import { LsFieldAlignment as LsFieldAlignmentElement, defineCustomElement as def
 import { LsFieldDimensions as LsFieldDimensionsElement, defineCustomElement as defineLsFieldDimensions } from "legalesign-document-viewer/dist/components/ls-field-dimensions.js";
 import { LsFieldDistribute as LsFieldDistributeElement, defineCustomElement as defineLsFieldDistribute } from "legalesign-document-viewer/dist/components/ls-field-distribute.js";
 import { LsFieldFormat as LsFieldFormatElement, defineCustomElement as defineLsFieldFormat } from "legalesign-document-viewer/dist/components/ls-field-format.js";
+import { LsFieldPropertiesAutosign as LsFieldPropertiesAutosignElement, defineCustomElement as defineLsFieldPropertiesAutosign } from "legalesign-document-viewer/dist/components/ls-field-properties-autosign.js";
 import { LsFieldPropertiesDate as LsFieldPropertiesDateElement, defineCustomElement as defineLsFieldPropertiesDate } from "legalesign-document-viewer/dist/components/ls-field-properties-date.js";
+import { LsFieldPropertiesEmail as LsFieldPropertiesEmailElement, defineCustomElement as defineLsFieldPropertiesEmail } from "legalesign-document-viewer/dist/components/ls-field-properties-email.js";
+import { LsFieldPropertiesFile as LsFieldPropertiesFileElement, defineCustomElement as defineLsFieldPropertiesFile } from "legalesign-document-viewer/dist/components/ls-field-properties-file.js";
 import { LsFieldPropertiesGeneral as LsFieldPropertiesGeneralElement, defineCustomElement as defineLsFieldPropertiesGeneral } from "legalesign-document-viewer/dist/components/ls-field-properties-general.js";
+import { LsFieldPropertiesImage as LsFieldPropertiesImageElement, defineCustomElement as defineLsFieldPropertiesImage } from "legalesign-document-viewer/dist/components/ls-field-properties-image.js";
 import { LsFieldPropertiesMultiple as LsFieldPropertiesMultipleElement, defineCustomElement as defineLsFieldPropertiesMultiple } from "legalesign-document-viewer/dist/components/ls-field-properties-multiple.js";
 import { LsFieldPropertiesNumber as LsFieldPropertiesNumberElement, defineCustomElement as defineLsFieldPropertiesNumber } from "legalesign-document-viewer/dist/components/ls-field-properties-number.js";
 import { LsFieldPropertiesSignature as LsFieldPropertiesSignatureElement, defineCustomElement as defineLsFieldPropertiesSignature } from "legalesign-document-viewer/dist/components/ls-field-properties-signature.js";
@@ -187,6 +191,17 @@ export const LsFieldProperties: StencilReactComponent<LsFieldPropertiesElement, 
     defineCustomElement: defineLsFieldProperties
 });
 
+export type LsFieldPropertiesAutosignEvents = NonNullable<unknown>;
+
+export const LsFieldPropertiesAutosign: StencilReactComponent<LsFieldPropertiesAutosignElement, LsFieldPropertiesAutosignEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesAutosignElement, LsFieldPropertiesAutosignEvents>({
+    tagName: 'ls-field-properties-autosign',
+    elementClass: LsFieldPropertiesAutosignElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldPropertiesAutosignEvents,
+    defineCustomElement: defineLsFieldPropertiesAutosign
+});
+
 export type LsFieldPropertiesDateEvents = NonNullable<unknown>;
 
 export const LsFieldPropertiesDate: StencilReactComponent<LsFieldPropertiesDateElement, LsFieldPropertiesDateEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesDateElement, LsFieldPropertiesDateEvents>({
@@ -198,6 +213,28 @@ export const LsFieldPropertiesDate: StencilReactComponent<LsFieldPropertiesDateE
     defineCustomElement: defineLsFieldPropertiesDate
 });
 
+export type LsFieldPropertiesEmailEvents = NonNullable<unknown>;
+
+export const LsFieldPropertiesEmail: StencilReactComponent<LsFieldPropertiesEmailElement, LsFieldPropertiesEmailEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesEmailElement, LsFieldPropertiesEmailEvents>({
+    tagName: 'ls-field-properties-email',
+    elementClass: LsFieldPropertiesEmailElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldPropertiesEmailEvents,
+    defineCustomElement: defineLsFieldPropertiesEmail
+});
+
+export type LsFieldPropertiesFileEvents = NonNullable<unknown>;
+
+export const LsFieldPropertiesFile: StencilReactComponent<LsFieldPropertiesFileElement, LsFieldPropertiesFileEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesFileElement, LsFieldPropertiesFileEvents>({
+    tagName: 'ls-field-properties-file',
+    elementClass: LsFieldPropertiesFileElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldPropertiesFileEvents,
+    defineCustomElement: defineLsFieldPropertiesFile
+});
+
 export type LsFieldPropertiesGeneralEvents = NonNullable<unknown>;
 
 export const LsFieldPropertiesGeneral: StencilReactComponent<LsFieldPropertiesGeneralElement, LsFieldPropertiesGeneralEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesGeneralElement, LsFieldPropertiesGeneralEvents>({
@@ -207,6 +244,17 @@ export const LsFieldPropertiesGeneral: StencilReactComponent<LsFieldPropertiesGe
     react: React,
     events: {} as LsFieldPropertiesGeneralEvents,
     defineCustomElement: defineLsFieldPropertiesGeneral
+});
+
+export type LsFieldPropertiesImageEvents = NonNullable<unknown>;
+
+export const LsFieldPropertiesImage: StencilReactComponent<LsFieldPropertiesImageElement, LsFieldPropertiesImageEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesImageElement, LsFieldPropertiesImageEvents>({
+    tagName: 'ls-field-properties-image',
+    elementClass: LsFieldPropertiesImageElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldPropertiesImageEvents,
+    defineCustomElement: defineLsFieldPropertiesImage
 });
 
 export type LsFieldPropertiesMultipleEvents = NonNullable<unknown>;
