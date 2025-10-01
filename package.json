@@ -1,6 +1,6 @@
 {
   "name": "legalesign-document-viewer-react",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Legalesign React Editor / Viewers",
   "keywords": [
     "stencilJS",
@@ -14,33 +14,9 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
-  "directories": {
-    "lib": "lib"
-  },
   "files": [
     "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.js"
-    },
-    "./dist/*": {
-      "import": "./dist/*",
-      "types": "./dist/*"
-    },
-    "./components/*": {
-      "import": "./dist/components/*.js",
-      "types": "./dist/components/*.d.ts"
-    },
-    "./loader": {
-      "import": "./loader/index.js",
-      "types": "./loader/index.d.ts",
-      "require": "./loader/index.cjs"
-    }
-  },
-  "include": [
-    "lib"
-  ],
+  ], 
   "exclude": [
     "node_modules"
   ],
