@@ -9,7 +9,7 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type LSApiElement, type LSMutateEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFormatCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantManagerCustomEvent } from "legalesign-document-viewer";
+import { type LSApiElement, type LSMutateEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
 import { LsDocumentOptions as LsDocumentOptionsElement, defineCustomElement as defineLsDocumentOptions } from "legalesign-document-viewer/dist/components/ls-document-options.js";
 import { LsDocumentViewer as LsDocumentViewerElement, defineCustomElement as defineLsDocumentViewer } from "legalesign-document-viewer/dist/components/ls-document-viewer.js";
 import { LsEditorField as LsEditorFieldElement, defineCustomElement as defineLsEditorField } from "legalesign-document-viewer/dist/components/ls-editor-field.js";
@@ -19,6 +19,7 @@ import { LsFieldAlignment as LsFieldAlignmentElement, defineCustomElement as def
 import { LsFieldDimensions as LsFieldDimensionsElement, defineCustomElement as defineLsFieldDimensions } from "legalesign-document-viewer/dist/components/ls-field-dimensions.js";
 import { LsFieldDistribute as LsFieldDistributeElement, defineCustomElement as defineLsFieldDistribute } from "legalesign-document-viewer/dist/components/ls-field-distribute.js";
 import { LsFieldFormat as LsFieldFormatElement, defineCustomElement as defineLsFieldFormat } from "legalesign-document-viewer/dist/components/ls-field-format.js";
+import { LsFieldPlacement as LsFieldPlacementElement, defineCustomElement as defineLsFieldPlacement } from "legalesign-document-viewer/dist/components/ls-field-placement.js";
 import { LsFieldPropertiesAutosign as LsFieldPropertiesAutosignElement, defineCustomElement as defineLsFieldPropertiesAutosign } from "legalesign-document-viewer/dist/components/ls-field-properties-autosign.js";
 import { LsFieldPropertiesDate as LsFieldPropertiesDateElement, defineCustomElement as defineLsFieldPropertiesDate } from "legalesign-document-viewer/dist/components/ls-field-properties-date.js";
 import { LsFieldPropertiesEmail as LsFieldPropertiesEmailElement, defineCustomElement as defineLsFieldPropertiesEmail } from "legalesign-document-viewer/dist/components/ls-field-properties-email.js";
@@ -41,6 +42,7 @@ import { LsSelectInput as LsSelectInputElement, defineCustomElement as defineLsS
 import { LsStatusbar as LsStatusbarElement, defineCustomElement as defineLsStatusbar } from "legalesign-document-viewer/dist/components/ls-statusbar.js";
 import { LsTextInput as LsTextInputElement, defineCustomElement as defineLsTextInput } from "legalesign-document-viewer/dist/components/ls-text-input.js";
 import { LsTextareaInput as LsTextareaInputElement, defineCustomElement as defineLsTextareaInput } from "legalesign-document-viewer/dist/components/ls-textarea-input.js";
+import { LsToggle as LsToggleElement, defineCustomElement as defineLsToggle } from "legalesign-document-viewer/dist/components/ls-toggle.js";
 import { LsToolbar as LsToolbarElement, defineCustomElement as defineLsToolbar } from "legalesign-document-viewer/dist/components/ls-toolbar.js";
 import { LsToolboxField as LsToolboxFieldElement, defineCustomElement as defineLsToolboxField } from "legalesign-document-viewer/dist/components/ls-toolbox-field.js";
 import React from 'react';
@@ -178,6 +180,23 @@ export const LsFieldFormat: StencilReactComponent<LsFieldFormatElement, LsFieldF
         onUpdate: 'update'
     } as LsFieldFormatEvents,
     defineCustomElement: defineLsFieldFormat
+});
+
+export type LsFieldPlacementEvents = {
+    onMutate: EventName<LsFieldPlacementCustomEvent<LSMutateEvent[]>>,
+    onUpdate: EventName<LsFieldPlacementCustomEvent<LSMutateEvent[]>>
+};
+
+export const LsFieldPlacement: StencilReactComponent<LsFieldPlacementElement, LsFieldPlacementEvents> = /*@__PURE__*/ createComponent<LsFieldPlacementElement, LsFieldPlacementEvents>({
+    tagName: 'ls-field-placement',
+    elementClass: LsFieldPlacementElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {
+        onMutate: 'mutate',
+        onUpdate: 'update'
+    } as LsFieldPlacementEvents,
+    defineCustomElement: defineLsFieldPlacement
 });
 
 export type LsFieldPropertiesEvents = NonNullable<unknown>;
@@ -368,14 +387,22 @@ export const LsParticipantManager: StencilReactComponent<LsParticipantManagerEle
     defineCustomElement: defineLsParticipantManager
 });
 
-export type LsParticipantSelectEvents = NonNullable<unknown>;
+export type LsParticipantSelectEvents = {
+    onMutate: EventName<LsParticipantSelectCustomEvent<LSMutateEvent[]>>,
+    onUpdate: EventName<LsParticipantSelectCustomEvent<LSMutateEvent[]>>,
+    onRoleChange: EventName<CustomEvent<number>>
+};
 
 export const LsParticipantSelect: StencilReactComponent<LsParticipantSelectElement, LsParticipantSelectEvents> = /*@__PURE__*/ createComponent<LsParticipantSelectElement, LsParticipantSelectEvents>({
     tagName: 'ls-participant-select',
     elementClass: LsParticipantSelectElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as LsParticipantSelectEvents,
+    events: {
+        onMutate: 'mutate',
+        onUpdate: 'update',
+        onRoleChange: 'roleChange'
+    } as LsParticipantSelectEvents,
     defineCustomElement: defineLsParticipantSelect
 });
 
@@ -434,14 +461,31 @@ export const LsTextareaInput: StencilReactComponent<LsTextareaInputElement, LsTe
     defineCustomElement: defineLsTextareaInput
 });
 
-export type LsToolbarEvents = NonNullable<unknown>;
+export type LsToggleEvents = NonNullable<unknown>;
+
+export const LsToggle: StencilReactComponent<LsToggleElement, LsToggleEvents> = /*@__PURE__*/ createComponent<LsToggleElement, LsToggleEvents>({
+    tagName: 'ls-toggle',
+    elementClass: LsToggleElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsToggleEvents,
+    defineCustomElement: defineLsToggle
+});
+
+export type LsToolbarEvents = {
+    onMutate: EventName<LsToolbarCustomEvent<LSMutateEvent[]>>,
+    onUpdate: EventName<LsToolbarCustomEvent<LSMutateEvent[]>>
+};
 
 export const LsToolbar: StencilReactComponent<LsToolbarElement, LsToolbarEvents> = /*@__PURE__*/ createComponent<LsToolbarElement, LsToolbarEvents>({
     tagName: 'ls-toolbar',
     elementClass: LsToolbarElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as LsToolbarEvents,
+    events: {
+        onMutate: 'mutate',
+        onUpdate: 'update'
+    } as LsToolbarEvents,
     defineCustomElement: defineLsToolbar
 });
 
