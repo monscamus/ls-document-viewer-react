@@ -1,13 +1,13 @@
 {
   "name": "legalesign-document-viewer-react",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Legalesign React Editor / Viewers",
   "keywords": [
     "stencilJS",
     "React",
     "components",
     "Legalesign",
-    "ui"
+    "template"
   ],
   "author": "Alex <alex.weinle@legalesign.com>",
   "license": "MIT",
@@ -45,7 +45,7 @@
     "node_modules"
   ],
   "scripts": {
-    "build": "npm run tsc",
+    "build": "pnpm run tsc",
     "tsc": "tsc -p . --outDir ./dist",
     "getiton": "pnpm install legalesign-document-viewer@latest",
     "publish": "npm publish --scope=public"
@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "@stencil/react-output-target": "^1.2.0",
-    "legalesign-document-viewer": "^0.1.3"
+    "legalesign-document-viewer": "^0.1.4"
   },
   "pnpm": {
     "overrides": {
