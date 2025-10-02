@@ -6,7 +6,7 @@ In Console you can switch to the Editor widget by altering the end of the url fr
 
 ## Known Issues
 
-Advanced fields hidden (Should)
+Unhide Advanced fields (Should)
 Zoom convines Canvas (Must)
 CSS overwritten (Must)
 Field CSS overwritten (Must)
@@ -14,7 +14,10 @@ Corner resize (Could)
 Witness Fields (Must)
 Show All Fields in Toolbox / Compress (Must)
 Participant Reorder (Must)
+Field Reorder (Could)
 Double Click Sets Field Value (Confirm)
 Required Style (Must)
 Special Validation Layouts (Could)
 Sometimes Layer Blocks First Select (Must)
+File Properties (Should)
+Out of Bound Style (Must)

@@ -1,6 +1,6 @@
 {
   "name": "legalesign-document-viewer-react",
-  "version": "0.1.13",
+  "version": "0.2.0",
   "description": "Legalesign React Editor / Viewers",
   "keywords": [
     "stencilJS",
@@ -15,8 +15,8 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
-    "directories": {
-    "lib": "lib"    
+  "directories": {
+    "lib": "lib"
   },
   "files": [
     "dist",
@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@stencil/react-output-target": "^1.2.0",
-    "legalesign-document-viewer": "^0.1.7"
+    "legalesign-document-viewer": "^0.2.0"
   },
   "pnpm": {
     "overrides": {

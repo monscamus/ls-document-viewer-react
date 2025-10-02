@@ -9,7 +9,7 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type LSApiElement, type LSMutateEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
+import { type LSApiElement, type LSMutateEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldPropertiesAdvancedCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
 import { LsDocumentOptions as LsDocumentOptionsElement, defineCustomElement as defineLsDocumentOptions } from "legalesign-document-viewer/dist/components/ls-document-options.js";
 import { LsDocumentViewer as LsDocumentViewerElement, defineCustomElement as defineLsDocumentViewer } from "legalesign-document-viewer/dist/components/ls-document-viewer.js";
 import { LsEditorField as LsEditorFieldElement, defineCustomElement as defineLsEditorField } from "legalesign-document-viewer/dist/components/ls-editor-field.js";
@@ -21,6 +21,7 @@ import { LsFieldDistribute as LsFieldDistributeElement, defineCustomElement as d
 import { LsFieldFooter as LsFieldFooterElement, defineCustomElement as defineLsFieldFooter } from "legalesign-document-viewer/dist/components/ls-field-footer.js";
 import { LsFieldFormat as LsFieldFormatElement, defineCustomElement as defineLsFieldFormat } from "legalesign-document-viewer/dist/components/ls-field-format.js";
 import { LsFieldPlacement as LsFieldPlacementElement, defineCustomElement as defineLsFieldPlacement } from "legalesign-document-viewer/dist/components/ls-field-placement.js";
+import { LsFieldPropertiesAdvanced as LsFieldPropertiesAdvancedElement, defineCustomElement as defineLsFieldPropertiesAdvanced } from "legalesign-document-viewer/dist/components/ls-field-properties-advanced.js";
 import { LsFieldPropertiesAutosign as LsFieldPropertiesAutosignElement, defineCustomElement as defineLsFieldPropertiesAutosign } from "legalesign-document-viewer/dist/components/ls-field-properties-autosign.js";
 import { LsFieldPropertiesDate as LsFieldPropertiesDateElement, defineCustomElement as defineLsFieldPropertiesDate } from "legalesign-document-viewer/dist/components/ls-field-properties-date.js";
 import { LsFieldPropertiesEmail as LsFieldPropertiesEmailElement, defineCustomElement as defineLsFieldPropertiesEmail } from "legalesign-document-viewer/dist/components/ls-field-properties-email.js";
@@ -226,6 +227,23 @@ export const LsFieldProperties: StencilReactComponent<LsFieldPropertiesElement, 
     react: React,
     events: {} as LsFieldPropertiesEvents,
     defineCustomElement: defineLsFieldProperties
+});
+
+export type LsFieldPropertiesAdvancedEvents = {
+    onMutate: EventName<LsFieldPropertiesAdvancedCustomEvent<LSMutateEvent[]>>,
+    onUpdate: EventName<LsFieldPropertiesAdvancedCustomEvent<LSMutateEvent[]>>
+};
+
+export const LsFieldPropertiesAdvanced: StencilReactComponent<LsFieldPropertiesAdvancedElement, LsFieldPropertiesAdvancedEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesAdvancedElement, LsFieldPropertiesAdvancedEvents>({
+    tagName: 'ls-field-properties-advanced',
+    elementClass: LsFieldPropertiesAdvancedElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {
+        onMutate: 'mutate',
+        onUpdate: 'update'
+    } as LsFieldPropertiesAdvancedEvents,
+    defineCustomElement: defineLsFieldPropertiesAdvanced
 });
 
 export type LsFieldPropertiesAutosignEvents = NonNullable<unknown>;
