@@ -1,6 +1,6 @@
 {
   "name": "legalesign-document-viewer-react",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "Legalesign React Editor / Viewers",
   "keywords": [
     "stencilJS",
@@ -10,12 +10,18 @@
     "template"
   ],
   "author": "Alex <alex.weinle@legalesign.com>",
+  "homepage": "http://apidocs.legalesign.com",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
+    "directories": {
+    "lib": "lib"    
+  },
   "files": [
-    "dist"
+    "dist",
+    "lib",
+    "types"
   ],
   "exclude": [
     "node_modules"
