@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es2022",
     "noUnusedLocals": true,
     "noImplicitAny": false,
@@ -17,7 +17,8 @@
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "h.Fragment",
-    "declarationDir": "./dist/types"
+    "declarationDir": "./dist/types",
+    "outDir": "./dist",
   },
   "include": [
     "lib"
