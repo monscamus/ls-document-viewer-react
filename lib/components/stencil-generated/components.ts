@@ -16,6 +16,7 @@ import { LsEditorField as LsEditorFieldElement, defineCustomElement as defineLsE
 import { LsEditorTable as LsEditorTableElement, defineCustomElement as defineLsEditorTable } from "legalesign-document-viewer/dist/components/ls-editor-table.js";
 import { LsFeatureColumn as LsFeatureColumnElement, defineCustomElement as defineLsFeatureColumn } from "legalesign-document-viewer/dist/components/ls-feature-column.js";
 import { LsFieldAlignment as LsFieldAlignmentElement, defineCustomElement as defineLsFieldAlignment } from "legalesign-document-viewer/dist/components/ls-field-alignment.js";
+import { LsFieldContent as LsFieldContentElement, defineCustomElement as defineLsFieldContent } from "legalesign-document-viewer/dist/components/ls-field-content.js";
 import { LsFieldDimensions as LsFieldDimensionsElement, defineCustomElement as defineLsFieldDimensions } from "legalesign-document-viewer/dist/components/ls-field-dimensions.js";
 import { LsFieldDistribute as LsFieldDistributeElement, defineCustomElement as defineLsFieldDistribute } from "legalesign-document-viewer/dist/components/ls-field-distribute.js";
 import { LsFieldFooter as LsFieldFooterElement, defineCustomElement as defineLsFieldFooter } from "legalesign-document-viewer/dist/components/ls-field-footer.js";
@@ -23,6 +24,7 @@ import { LsFieldFormat as LsFieldFormatElement, defineCustomElement as defineLsF
 import { LsFieldPlacement as LsFieldPlacementElement, defineCustomElement as defineLsFieldPlacement } from "legalesign-document-viewer/dist/components/ls-field-placement.js";
 import { LsFieldPropertiesAdvanced as LsFieldPropertiesAdvancedElement, defineCustomElement as defineLsFieldPropertiesAdvanced } from "legalesign-document-viewer/dist/components/ls-field-properties-advanced.js";
 import { LsFieldPropertiesAutosign as LsFieldPropertiesAutosignElement, defineCustomElement as defineLsFieldPropertiesAutosign } from "legalesign-document-viewer/dist/components/ls-field-properties-autosign.js";
+import { LsFieldPropertiesContainer as LsFieldPropertiesContainerElement, defineCustomElement as defineLsFieldPropertiesContainer } from "legalesign-document-viewer/dist/components/ls-field-properties-container.js";
 import { LsFieldPropertiesDate as LsFieldPropertiesDateElement, defineCustomElement as defineLsFieldPropertiesDate } from "legalesign-document-viewer/dist/components/ls-field-properties-date.js";
 import { LsFieldPropertiesEmail as LsFieldPropertiesEmailElement, defineCustomElement as defineLsFieldPropertiesEmail } from "legalesign-document-viewer/dist/components/ls-field-properties-email.js";
 import { LsFieldPropertiesFile as LsFieldPropertiesFileElement, defineCustomElement as defineLsFieldPropertiesFile } from "legalesign-document-viewer/dist/components/ls-field-properties-file.js";
@@ -34,11 +36,14 @@ import { LsFieldPropertiesSignature as LsFieldPropertiesSignatureElement, define
 import { LsFieldPropertiesText as LsFieldPropertiesTextElement, defineCustomElement as defineLsFieldPropertiesText } from "legalesign-document-viewer/dist/components/ls-field-properties-text.js";
 import { LsFieldProperties as LsFieldPropertiesElement, defineCustomElement as defineLsFieldProperties } from "legalesign-document-viewer/dist/components/ls-field-properties.js";
 import { LsFieldSize as LsFieldSizeElement, defineCustomElement as defineLsFieldSize } from "legalesign-document-viewer/dist/components/ls-field-size.js";
+import { LsFieldTypeDisplay as LsFieldTypeDisplayElement, defineCustomElement as defineLsFieldTypeDisplay } from "legalesign-document-viewer/dist/components/ls-field-type-display.js";
 import { LsFormfield as LsFormfieldElement, defineCustomElement as defineLsFormfield } from "legalesign-document-viewer/dist/components/ls-formfield.js";
 import { LsIcon as LsIconElement, defineCustomElement as defineLsIcon } from "legalesign-document-viewer/dist/components/ls-icon.js";
+import { LsInputWrapper as LsInputWrapperElement, defineCustomElement as defineLsInputWrapper } from "legalesign-document-viewer/dist/components/ls-input-wrapper.js";
 import { LsNumberInput as LsNumberInputElement, defineCustomElement as defineLsNumberInput } from "legalesign-document-viewer/dist/components/ls-number-input.js";
 import { LsParticipantManager as LsParticipantManagerElement, defineCustomElement as defineLsParticipantManager } from "legalesign-document-viewer/dist/components/ls-participant-manager.js";
 import { LsParticipantSelect as LsParticipantSelectElement, defineCustomElement as defineLsParticipantSelect } from "legalesign-document-viewer/dist/components/ls-participant-select.js";
+import { LsPropsSection as LsPropsSectionElement, defineCustomElement as defineLsPropsSection } from "legalesign-document-viewer/dist/components/ls-props-section.js";
 import { LsRadioInput as LsRadioInputElement, defineCustomElement as defineLsRadioInput } from "legalesign-document-viewer/dist/components/ls-radio-input.js";
 import { LsSelectInput as LsSelectInputElement, defineCustomElement as defineLsSelectInput } from "legalesign-document-viewer/dist/components/ls-select-input.js";
 import { LsStatusbar as LsStatusbarElement, defineCustomElement as defineLsStatusbar } from "legalesign-document-viewer/dist/components/ls-statusbar.js";
@@ -131,6 +136,17 @@ export const LsFieldAlignment: StencilReactComponent<LsFieldAlignmentElement, Ls
         onUpdate: 'update'
     } as LsFieldAlignmentEvents,
     defineCustomElement: defineLsFieldAlignment
+});
+
+export type LsFieldContentEvents = NonNullable<unknown>;
+
+export const LsFieldContent: StencilReactComponent<LsFieldContentElement, LsFieldContentEvents> = /*@__PURE__*/ createComponent<LsFieldContentElement, LsFieldContentEvents>({
+    tagName: 'ls-field-content',
+    elementClass: LsFieldContentElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldContentEvents,
+    defineCustomElement: defineLsFieldContent
 });
 
 export type LsFieldDimensionsEvents = {
@@ -257,6 +273,17 @@ export const LsFieldPropertiesAutosign: StencilReactComponent<LsFieldPropertiesA
     defineCustomElement: defineLsFieldPropertiesAutosign
 });
 
+export type LsFieldPropertiesContainerEvents = NonNullable<unknown>;
+
+export const LsFieldPropertiesContainer: StencilReactComponent<LsFieldPropertiesContainerElement, LsFieldPropertiesContainerEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesContainerElement, LsFieldPropertiesContainerEvents>({
+    tagName: 'ls-field-properties-container',
+    elementClass: LsFieldPropertiesContainerElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldPropertiesContainerEvents,
+    defineCustomElement: defineLsFieldPropertiesContainer
+});
+
 export type LsFieldPropertiesDateEvents = NonNullable<unknown>;
 
 export const LsFieldPropertiesDate: StencilReactComponent<LsFieldPropertiesDateElement, LsFieldPropertiesDateEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesDateElement, LsFieldPropertiesDateEvents>({
@@ -373,6 +400,17 @@ export const LsFieldSize: StencilReactComponent<LsFieldSizeElement, LsFieldSizeE
     defineCustomElement: defineLsFieldSize
 });
 
+export type LsFieldTypeDisplayEvents = NonNullable<unknown>;
+
+export const LsFieldTypeDisplay: StencilReactComponent<LsFieldTypeDisplayElement, LsFieldTypeDisplayEvents> = /*@__PURE__*/ createComponent<LsFieldTypeDisplayElement, LsFieldTypeDisplayEvents>({
+    tagName: 'ls-field-type-display',
+    elementClass: LsFieldTypeDisplayElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldTypeDisplayEvents,
+    defineCustomElement: defineLsFieldTypeDisplay
+});
+
 export type LsFormfieldEvents = NonNullable<unknown>;
 
 export const LsFormfield: StencilReactComponent<LsFormfieldElement, LsFormfieldEvents> = /*@__PURE__*/ createComponent<LsFormfieldElement, LsFormfieldEvents>({
@@ -393,6 +431,17 @@ export const LsIcon: StencilReactComponent<LsIconElement, LsIconEvents> = /*@__P
     react: React,
     events: {} as LsIconEvents,
     defineCustomElement: defineLsIcon
+});
+
+export type LsInputWrapperEvents = NonNullable<unknown>;
+
+export const LsInputWrapper: StencilReactComponent<LsInputWrapperElement, LsInputWrapperEvents> = /*@__PURE__*/ createComponent<LsInputWrapperElement, LsInputWrapperEvents>({
+    tagName: 'ls-input-wrapper',
+    elementClass: LsInputWrapperElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsInputWrapperEvents,
+    defineCustomElement: defineLsInputWrapper
 });
 
 export type LsNumberInputEvents = NonNullable<unknown>;
@@ -440,6 +489,17 @@ export const LsParticipantSelect: StencilReactComponent<LsParticipantSelectEleme
         onRoleChange: 'roleChange'
     } as LsParticipantSelectEvents,
     defineCustomElement: defineLsParticipantSelect
+});
+
+export type LsPropsSectionEvents = NonNullable<unknown>;
+
+export const LsPropsSection: StencilReactComponent<LsPropsSectionElement, LsPropsSectionEvents> = /*@__PURE__*/ createComponent<LsPropsSectionElement, LsPropsSectionEvents>({
+    tagName: 'ls-props-section',
+    elementClass: LsPropsSectionElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsPropsSectionEvents,
+    defineCustomElement: defineLsPropsSection
 });
 
 export type LsRadioInputEvents = NonNullable<unknown>;
