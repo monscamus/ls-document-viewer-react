@@ -9,7 +9,7 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type LSApiElement, type LSMutateEvent, type LsDocumentOptionsCustomEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldContentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldPropertiesAdvancedCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantCardCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
+import { type LSApiElement, type LSApiRole, type LSMutateEvent, type LsDocumentOptionsCustomEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldContentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldPropertiesAdvancedCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantCardCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
 import { LsDocumentOptions as LsDocumentOptionsElement, defineCustomElement as defineLsDocumentOptions } from "legalesign-document-viewer/dist/components/ls-document-options.js";
 import { LsDocumentViewer as LsDocumentViewerElement, defineCustomElement as defineLsDocumentViewer } from "legalesign-document-viewer/dist/components/ls-document-viewer.js";
 import { LsEditorField as LsEditorFieldElement, defineCustomElement as defineLsEditorField } from "legalesign-document-viewer/dist/components/ls-editor-field.js";
@@ -470,7 +470,8 @@ export const LsNumberInput: StencilReactComponent<LsNumberInputElement, LsNumber
 
 export type LsParticipantCardEvents = {
     onMutate: EventName<LsParticipantCardCustomEvent<LSMutateEvent[]>>,
-    onUpdate: EventName<LsParticipantCardCustomEvent<LSMutateEvent[]>>
+    onUpdate: EventName<LsParticipantCardCustomEvent<LSMutateEvent[]>>,
+    onOpened: EventName<LsParticipantCardCustomEvent<LSApiRole>>
 };
 
 export const LsParticipantCard: StencilReactComponent<LsParticipantCardElement, LsParticipantCardEvents> = /*@__PURE__*/ createComponent<LsParticipantCardElement, LsParticipantCardEvents>({
@@ -480,7 +481,8 @@ export const LsParticipantCard: StencilReactComponent<LsParticipantCardElement, 
     react: React,
     events: {
         onMutate: 'mutate',
-        onUpdate: 'update'
+        onUpdate: 'update',
+        onOpened: 'opened'
     } as LsParticipantCardEvents,
     defineCustomElement: defineLsParticipantCard
 });
