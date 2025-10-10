@@ -9,7 +9,7 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type LSApiElement, type LSMutateEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldPropertiesAdvancedCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
+import { type LSApiElement, type LSMutateEvent, type LsDocumentOptionsCustomEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldContentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldPropertiesAdvancedCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantCardCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
 import { LsDocumentOptions as LsDocumentOptionsElement, defineCustomElement as defineLsDocumentOptions } from "legalesign-document-viewer/dist/components/ls-document-options.js";
 import { LsDocumentViewer as LsDocumentViewerElement, defineCustomElement as defineLsDocumentViewer } from "legalesign-document-viewer/dist/components/ls-document-viewer.js";
 import { LsEditorField as LsEditorFieldElement, defineCustomElement as defineLsEditorField } from "legalesign-document-viewer/dist/components/ls-editor-field.js";
@@ -41,6 +41,7 @@ import { LsFormfield as LsFormfieldElement, defineCustomElement as defineLsFormf
 import { LsIcon as LsIconElement, defineCustomElement as defineLsIcon } from "legalesign-document-viewer/dist/components/ls-icon.js";
 import { LsInputWrapper as LsInputWrapperElement, defineCustomElement as defineLsInputWrapper } from "legalesign-document-viewer/dist/components/ls-input-wrapper.js";
 import { LsNumberInput as LsNumberInputElement, defineCustomElement as defineLsNumberInput } from "legalesign-document-viewer/dist/components/ls-number-input.js";
+import { LsParticipantCard as LsParticipantCardElement, defineCustomElement as defineLsParticipantCard } from "legalesign-document-viewer/dist/components/ls-participant-card.js";
 import { LsParticipantManager as LsParticipantManagerElement, defineCustomElement as defineLsParticipantManager } from "legalesign-document-viewer/dist/components/ls-participant-manager.js";
 import { LsParticipantSelect as LsParticipantSelectElement, defineCustomElement as defineLsParticipantSelect } from "legalesign-document-viewer/dist/components/ls-participant-select.js";
 import { LsPropsSection as LsPropsSectionElement, defineCustomElement as defineLsPropsSection } from "legalesign-document-viewer/dist/components/ls-props-section.js";
@@ -54,14 +55,20 @@ import { LsToolbar as LsToolbarElement, defineCustomElement as defineLsToolbar }
 import { LsToolboxField as LsToolboxFieldElement, defineCustomElement as defineLsToolboxField } from "legalesign-document-viewer/dist/components/ls-toolbox-field.js";
 import React from 'react';
 
-export type LsDocumentOptionsEvents = NonNullable<unknown>;
+export type LsDocumentOptionsEvents = {
+    onMutate: EventName<LsDocumentOptionsCustomEvent<LSMutateEvent[]>>,
+    onUpdate: EventName<LsDocumentOptionsCustomEvent<LSMutateEvent[]>>
+};
 
 export const LsDocumentOptions: StencilReactComponent<LsDocumentOptionsElement, LsDocumentOptionsEvents> = /*@__PURE__*/ createComponent<LsDocumentOptionsElement, LsDocumentOptionsEvents>({
     tagName: 'ls-document-options',
     elementClass: LsDocumentOptionsElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as LsDocumentOptionsEvents,
+    events: {
+        onMutate: 'mutate',
+        onUpdate: 'update'
+    } as LsDocumentOptionsEvents,
     defineCustomElement: defineLsDocumentOptions
 });
 
@@ -138,14 +145,20 @@ export const LsFieldAlignment: StencilReactComponent<LsFieldAlignmentElement, Ls
     defineCustomElement: defineLsFieldAlignment
 });
 
-export type LsFieldContentEvents = NonNullable<unknown>;
+export type LsFieldContentEvents = {
+    onMutate: EventName<LsFieldContentCustomEvent<LSMutateEvent[]>>,
+    onUpdate: EventName<LsFieldContentCustomEvent<LSMutateEvent[]>>
+};
 
 export const LsFieldContent: StencilReactComponent<LsFieldContentElement, LsFieldContentEvents> = /*@__PURE__*/ createComponent<LsFieldContentElement, LsFieldContentEvents>({
     tagName: 'ls-field-content',
     elementClass: LsFieldContentElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as LsFieldContentEvents,
+    events: {
+        onMutate: 'mutate',
+        onUpdate: 'update'
+    } as LsFieldContentEvents,
     defineCustomElement: defineLsFieldContent
 });
 
@@ -411,14 +424,14 @@ export const LsFieldTypeDisplay: StencilReactComponent<LsFieldTypeDisplayElement
     defineCustomElement: defineLsFieldTypeDisplay
 });
 
-export type LsFormfieldEvents = NonNullable<unknown>;
+export type LsFormfieldEvents = { onValueChange: EventName<CustomEvent<string>> };
 
 export const LsFormfield: StencilReactComponent<LsFormfieldElement, LsFormfieldEvents> = /*@__PURE__*/ createComponent<LsFormfieldElement, LsFormfieldEvents>({
     tagName: 'ls-formfield',
     elementClass: LsFormfieldElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as LsFormfieldEvents,
+    events: { onValueChange: 'valueChange' } as LsFormfieldEvents,
     defineCustomElement: defineLsFormfield
 });
 
@@ -453,6 +466,23 @@ export const LsNumberInput: StencilReactComponent<LsNumberInputElement, LsNumber
     react: React,
     events: {} as LsNumberInputEvents,
     defineCustomElement: defineLsNumberInput
+});
+
+export type LsParticipantCardEvents = {
+    onMutate: EventName<LsParticipantCardCustomEvent<LSMutateEvent[]>>,
+    onUpdate: EventName<LsParticipantCardCustomEvent<LSMutateEvent[]>>
+};
+
+export const LsParticipantCard: StencilReactComponent<LsParticipantCardElement, LsParticipantCardEvents> = /*@__PURE__*/ createComponent<LsParticipantCardElement, LsParticipantCardEvents>({
+    tagName: 'ls-participant-card',
+    elementClass: LsParticipantCardElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {
+        onMutate: 'mutate',
+        onUpdate: 'update'
+    } as LsParticipantCardEvents,
+    defineCustomElement: defineLsParticipantCard
 });
 
 export type LsParticipantManagerEvents = {
@@ -535,14 +565,14 @@ export const LsStatusbar: StencilReactComponent<LsStatusbarElement, LsStatusbarE
     defineCustomElement: defineLsStatusbar
 });
 
-export type LsTextInputEvents = NonNullable<unknown>;
+export type LsTextInputEvents = { onValueChange: EventName<CustomEvent<string>> };
 
 export const LsTextInput: StencilReactComponent<LsTextInputElement, LsTextInputEvents> = /*@__PURE__*/ createComponent<LsTextInputElement, LsTextInputEvents>({
     tagName: 'ls-text-input',
     elementClass: LsTextInputElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as LsTextInputEvents,
+    events: { onValueChange: 'valueChange' } as LsTextInputEvents,
     defineCustomElement: defineLsTextInput
 });
 
@@ -557,14 +587,14 @@ export const LsTextareaInput: StencilReactComponent<LsTextareaInputElement, LsTe
     defineCustomElement: defineLsTextareaInput
 });
 
-export type LsToggleEvents = NonNullable<unknown>;
+export type LsToggleEvents = { onValueChange: EventName<CustomEvent<boolean>> };
 
 export const LsToggle: StencilReactComponent<LsToggleElement, LsToggleEvents> = /*@__PURE__*/ createComponent<LsToggleElement, LsToggleEvents>({
     tagName: 'ls-toggle',
     elementClass: LsToggleElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as LsToggleEvents,
+    events: { onValueChange: 'valueChange' } as LsToggleEvents,
     defineCustomElement: defineLsToggle
 });
 
