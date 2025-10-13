@@ -1,6 +1,6 @@
 {
   "name": "legalesign-document-viewer-react",
-  "version": "0.2.12",
+  "version": "0.2.14",
   "description": "Legalesign React Editor / Viewers",
   "keywords": [
     "stencilJS",
@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@stencil/react-output-target": "^1.2.0",
-    "legalesign-document-viewer": "^0.2.12"
+    "legalesign-document-viewer": "^0.2.14"
   },
   "pnpm": {
     "overrides": {

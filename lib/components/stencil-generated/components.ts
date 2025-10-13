@@ -53,6 +53,7 @@ import { LsTextareaInput as LsTextareaInputElement, defineCustomElement as defin
 import { LsToggle as LsToggleElement, defineCustomElement as defineLsToggle } from "legalesign-document-viewer/dist/components/ls-toggle.js";
 import { LsToolbar as LsToolbarElement, defineCustomElement as defineLsToolbar } from "legalesign-document-viewer/dist/components/ls-toolbar.js";
 import { LsToolboxField as LsToolboxFieldElement, defineCustomElement as defineLsToolboxField } from "legalesign-document-viewer/dist/components/ls-toolbox-field.js";
+import { LsValidationTag as LsValidationTagElement, defineCustomElement as defineLsValidationTag } from "legalesign-document-viewer/dist/components/ls-validation-tag.js";
 import React from 'react';
 
 export type LsDocumentOptionsEvents = {
@@ -626,4 +627,15 @@ export const LsToolboxField: StencilReactComponent<LsToolboxFieldElement, LsTool
     react: React,
     events: {} as LsToolboxFieldEvents,
     defineCustomElement: defineLsToolboxField
+});
+
+export type LsValidationTagEvents = NonNullable<unknown>;
+
+export const LsValidationTag: StencilReactComponent<LsValidationTagElement, LsValidationTagEvents> = /*@__PURE__*/ createComponent<LsValidationTagElement, LsValidationTagEvents>({
+    tagName: 'ls-validation-tag',
+    elementClass: LsValidationTagElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsValidationTagEvents,
+    defineCustomElement: defineLsValidationTag
 });
