@@ -9,7 +9,7 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type LSApiElement, type LSApiRole, type LSMutateEvent, type LsDocumentOptionsCustomEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldContentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldPropertiesAdvancedCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantCardCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
+import { type LSApiElement, type LSApiRole, type LSApiRoleType, type LSMutateEvent, type LsDocumentOptionsCustomEvent, type LsDocumentViewerCustomEvent, type LsFieldAlignmentCustomEvent, type LsFieldContentCustomEvent, type LsFieldDimensionsCustomEvent, type LsFieldDistributeCustomEvent, type LsFieldFooterCustomEvent, type LsFieldFormatCustomEvent, type LsFieldPlacementCustomEvent, type LsFieldPropertiesAdvancedCustomEvent, type LsFieldSizeCustomEvent, type LsParticipantCardCustomEvent, type LsParticipantManagerCustomEvent, type LsParticipantSelectCustomEvent, type LsToolbarCustomEvent } from "legalesign-document-viewer";
 import { LsDocumentOptions as LsDocumentOptionsElement, defineCustomElement as defineLsDocumentOptions } from "legalesign-document-viewer/dist/components/ls-document-options.js";
 import { LsDocumentViewer as LsDocumentViewerElement, defineCustomElement as defineLsDocumentViewer } from "legalesign-document-viewer/dist/components/ls-document-viewer.js";
 import { LsEditorField as LsEditorFieldElement, defineCustomElement as defineLsEditorField } from "legalesign-document-viewer/dist/components/ls-editor-field.js";
@@ -490,7 +490,8 @@ export const LsParticipantCard: StencilReactComponent<LsParticipantCardElement, 
 
 export type LsParticipantManagerEvents = {
     onMutate: EventName<LsParticipantManagerCustomEvent<LSMutateEvent[]>>,
-    onUpdate: EventName<LsParticipantManagerCustomEvent<LSMutateEvent[]>>
+    onUpdate: EventName<LsParticipantManagerCustomEvent<LSMutateEvent[]>>,
+    onAddParticipant: EventName<LsParticipantManagerCustomEvent<{ type: LSApiRoleType, parent?: string | null }>>
 };
 
 export const LsParticipantManager: StencilReactComponent<LsParticipantManagerElement, LsParticipantManagerEvents> = /*@__PURE__*/ createComponent<LsParticipantManagerElement, LsParticipantManagerEvents>({
@@ -500,15 +501,15 @@ export const LsParticipantManager: StencilReactComponent<LsParticipantManagerEle
     react: React,
     events: {
         onMutate: 'mutate',
-        onUpdate: 'update'
+        onUpdate: 'update',
+        onAddParticipant: 'addParticipant'
     } as LsParticipantManagerEvents,
     defineCustomElement: defineLsParticipantManager
 });
 
 export type LsParticipantSelectEvents = {
-    onMutate: EventName<LsParticipantSelectCustomEvent<LSMutateEvent[]>>,
-    onUpdate: EventName<LsParticipantSelectCustomEvent<LSMutateEvent[]>>,
-    onRoleChange: EventName<CustomEvent<number>>
+    onRoleChange: EventName<CustomEvent<number>>,
+    onAddParticipant: EventName<LsParticipantSelectCustomEvent<{ type: LSApiRoleType, parent?: string | null }>>
 };
 
 export const LsParticipantSelect: StencilReactComponent<LsParticipantSelectElement, LsParticipantSelectEvents> = /*@__PURE__*/ createComponent<LsParticipantSelectElement, LsParticipantSelectEvents>({
@@ -517,9 +518,8 @@ export const LsParticipantSelect: StencilReactComponent<LsParticipantSelectEleme
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
     events: {
-        onMutate: 'mutate',
-        onUpdate: 'update',
-        onRoleChange: 'roleChange'
+        onRoleChange: 'roleChange',
+        onAddParticipant: 'addParticipant'
     } as LsParticipantSelectEvents,
     defineCustomElement: defineLsParticipantSelect
 });
