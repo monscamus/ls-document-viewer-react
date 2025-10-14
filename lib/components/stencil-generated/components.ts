@@ -26,6 +26,7 @@ import { LsFieldPropertiesAdvanced as LsFieldPropertiesAdvancedElement, defineCu
 import { LsFieldPropertiesAutosign as LsFieldPropertiesAutosignElement, defineCustomElement as defineLsFieldPropertiesAutosign } from "legalesign-document-viewer/dist/components/ls-field-properties-autosign.js";
 import { LsFieldPropertiesContainer as LsFieldPropertiesContainerElement, defineCustomElement as defineLsFieldPropertiesContainer } from "legalesign-document-viewer/dist/components/ls-field-properties-container.js";
 import { LsFieldPropertiesDate as LsFieldPropertiesDateElement, defineCustomElement as defineLsFieldPropertiesDate } from "legalesign-document-viewer/dist/components/ls-field-properties-date.js";
+import { LsFieldPropertiesDropdown as LsFieldPropertiesDropdownElement, defineCustomElement as defineLsFieldPropertiesDropdown } from "legalesign-document-viewer/dist/components/ls-field-properties-dropdown.js";
 import { LsFieldPropertiesEmail as LsFieldPropertiesEmailElement, defineCustomElement as defineLsFieldPropertiesEmail } from "legalesign-document-viewer/dist/components/ls-field-properties-email.js";
 import { LsFieldPropertiesFile as LsFieldPropertiesFileElement, defineCustomElement as defineLsFieldPropertiesFile } from "legalesign-document-viewer/dist/components/ls-field-properties-file.js";
 import { LsFieldPropertiesGeneral as LsFieldPropertiesGeneralElement, defineCustomElement as defineLsFieldPropertiesGeneral } from "legalesign-document-viewer/dist/components/ls-field-properties-general.js";
@@ -307,6 +308,17 @@ export const LsFieldPropertiesDate: StencilReactComponent<LsFieldPropertiesDateE
     react: React,
     events: {} as LsFieldPropertiesDateEvents,
     defineCustomElement: defineLsFieldPropertiesDate
+});
+
+export type LsFieldPropertiesDropdownEvents = NonNullable<unknown>;
+
+export const LsFieldPropertiesDropdown: StencilReactComponent<LsFieldPropertiesDropdownElement, LsFieldPropertiesDropdownEvents> = /*@__PURE__*/ createComponent<LsFieldPropertiesDropdownElement, LsFieldPropertiesDropdownEvents>({
+    tagName: 'ls-field-properties-dropdown',
+    elementClass: LsFieldPropertiesDropdownElement,
+    // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
+    react: React,
+    events: {} as LsFieldPropertiesDropdownEvents,
+    defineCustomElement: defineLsFieldPropertiesDropdown
 });
 
 export type LsFieldPropertiesEmailEvents = NonNullable<unknown>;
